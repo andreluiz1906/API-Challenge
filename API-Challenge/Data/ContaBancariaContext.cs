@@ -15,5 +15,6 @@ namespace API_Challenge.Data
         }
 
         public DbSet<Conta> Contas { get; set; }
+
     }
 }

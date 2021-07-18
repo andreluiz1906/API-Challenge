@@ -1,4 +1,5 @@
 using API_Challenge.Data;
+using API_Challenge.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,7 @@ namespace API_Challenge
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IContaRepository, ContaRepository>();
             services.AddDbContext<ContaBancariaContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("ContaBancariaConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
